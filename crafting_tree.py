@@ -42,8 +42,6 @@ def _craft(input: str):
 		return False
 
 	for component in list(recipes[input]["subcomponents"]):
-		if component == "copper wire" and input == "vacuum tube":
-			1
 		currentcomponentsneeded = recipes[input]["subcomponents"][component]
 		if component in spares and spares[component]:
 			if currentcomponentsneeded > spares[component]:

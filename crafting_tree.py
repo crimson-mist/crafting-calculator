@@ -23,7 +23,6 @@ def print_analytics(input):
 	print(spares)
 
 def _craft(input: str):
-	print_analytics(input)
 	update_intermediaries(input)
 
 	if input not in recipes:
@@ -43,7 +42,6 @@ def _craft(input: str):
 		return False
 
 	for component in list(recipes[input]["subcomponents"]):
-		print(component)
 		if component == "copper wire" and input == "vacuum tube":
 			1
 		currentcomponentsneeded = recipes[input]["subcomponents"][component]
@@ -53,7 +51,6 @@ def _craft(input: str):
 				update_intermediaries(component, spares[component])
 				spares[component] = 0
 			else:
-				print_analytics(component)
 				update_intermediaries(component, currentcomponentsneeded)
 				spares[component] = spares[component] - currentcomponentsneeded
 				currentcomponentsneeded = 0
@@ -63,11 +60,11 @@ def _craft(input: str):
 				spares[component] = spares[component] - 1
 				continue
 			successful_last_craft = _craft(component)
-			if successful_last_craft and currentcomponentsneeded % recipes[component]["quantity"]:
-				if component in spares:
-					spares[component] = spares[component] + recipes[component]["quantity"] - currentcomponentsneeded % recipes[component]["quantity"]
-				else:
-					spares[component] =                     recipes[component]["quantity"] - currentcomponentsneeded % recipes[component]["quantity"]
+		if successful_last_craft and currentcomponentsneeded % recipes[component]["quantity"]:
+			if component in spares:
+				spares[component] = spares[component] + recipes[component]["quantity"] - currentcomponentsneeded % recipes[component]["quantity"]
+			else:
+				spares[component] =                     recipes[component]["quantity"] - currentcomponentsneeded % recipes[component]["quantity"]
 
 	return True
 
@@ -78,8 +75,7 @@ def craft(input: str, num_crafts: int):
 
 desired_craft = "lv circuit"
 for desired_num in range(1, 2):
-	print()
 	craft(desired_craft, 1)
 
-	print(desired_num, f"{desired_craft}", ":", req_items, spares)
-	print(intermediaries)
+print(desired_num, f"{desired_craft}", ":", req_items, spares)
+print(intermediaries)

@@ -14,7 +14,7 @@ recipes = {
 		"base": False,
 		"subcomponents": {
 			"copper wire": 2,
-			"thin copper wire": 2,
+			"fine copper wire": 2,
 			"sticky resin": 2,
 			"charcoal dust": 1,
 		},
@@ -31,7 +31,7 @@ recipes = {
 		"base": False,
 		"subcomponents": {
 			"copper wire": 3,
-			"thin copper wire": 2,
+			"fine copper wire": 2,
 			"glass tube": 1,
 			"steel rod": 2,
 			"red alloy bolt": 1,
@@ -42,7 +42,7 @@ recipes = {
 		"base": False,
 		"subcomponents": {
 			"copper wire": 8,
-			"resined wooden board": 1,
+			"coated circuit board": 1,
 		},
 		"quantity": 1,
 	},
@@ -54,7 +54,7 @@ recipes = {
 		},
 		"quantity": 2,
 	},
-	"thin copper wire": {
+	"fine copper wire": {
 		"base": False,
 		"subcomponents": {
 			"copper ingot": 1,
@@ -105,10 +105,10 @@ recipes = {
 		},
 		"quantity": 2,
 	},
-	"resined wooden board": {
+	"coated circuit board": {
 		"base": False,
 		"subcomponents": {
-			"wooden board": 1,
+			"wooden plank": 1,
 			"sticky resin": 2,
 		},
 		"quantity": 1,
@@ -130,7 +130,7 @@ recipes = {
 		"base": True,
 		"quantity": 1,
 	},
-	"wooden board": {
+	"wooden plank": {
 		"base": True,
 		"quantity": 1,
 	},

@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 import math
+import string
+import sys
 from recipes import recipes
 
 req_items = {}
@@ -42,6 +44,7 @@ def _craft(input: str):
 		return False
 
 	for component in list(recipes[input]["subcomponents"]):
+		successful_last_craft = False
 		currentcomponentsneeded = recipes[input]["subcomponents"][component]
 		if component in spares and spares[component]:
 			if currentcomponentsneeded > spares[component]:
@@ -70,10 +73,23 @@ def craft(input: str, num_crafts: int):
 	for _ in range(num_crafts):
 		_craft(input)
 
+def main():
+	if len(sys.argv) == 1:
+		print("crafting_tree.py [number of desired crafts] [desired items to craft]")
+		exit()
 
-desired_craft = "lv circuit"
-for desired_num in range(1, 2):
-	craft(desired_craft, 1)
+	if sys.argv[1][0] in string.digits:
+		desired_num = int(sys.argv[1])
 
-print(desired_num, f"{desired_craft}", ":", req_items, spares)
-print(intermediaries)
+		desired_craft = " ".join(sys.argv[2:])
+	else:
+		desired_num = 1
+		desired_craft = " ".join(sys.argv[1:])
+
+	craft(desired_craft, desired_num)
+
+	print(desired_num, f"{desired_craft}", ":", req_items, spares)
+	print(intermediaries)
+
+if __name__ == "__main__":
+	main()

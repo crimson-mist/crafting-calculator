@@ -42,7 +42,7 @@ recipes = {
 		"base": False,
 		"subcomponents": {
 			"copper wire": 8,
-			"wooden board": 1,
+			"resined wooden board": 1,
 		},
 		"quantity": 1,
 	},
@@ -104,6 +104,14 @@ recipes = {
 			"red alloy ingot": 1,
 		},
 		"quantity": 2,
+	},
+	"resined wooden board": {
+		"base": False,
+		"subcomponents": {
+			"wooden board": 1,
+			"sticky resin": 2,
+		},
+		"quantity": 1,
 	},
 
 	"copper ingot": {
